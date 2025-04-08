@@ -13,7 +13,7 @@
         <div class="text">
           <slot name="text"></slot>
         </div>
-        <div class="link">
+        <div class="link" v-if="link">
           <a :href="link" target="_blank">
             <span>Visit project website</span><span class="link-arrow"></span>
           </a>

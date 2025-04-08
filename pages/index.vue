@@ -2,6 +2,9 @@
 import Header from '~/components/Header.vue';
 import Hero from '~/components/Hero.vue';
 
+const config = useRuntimeConfig();
+console.log('config ', config)
+
 const projects = [
   { 
     place: 'Spain, Marbella ',
@@ -16,28 +19,68 @@ const projects = [
     title: 'The House',
     text: "<p>Set on a hillside above the Bay of Kotor — Europe’s southernmost fjord — The House is a residential compound of five architecturally distinct buildings.</p><p>Designed with seismic resilience in mind, the structures feature monolithic frames and brick infill. The 300 mm travertine-clad exterior walls are built over a four-layer “warm ceramics” system that ensures top-tier thermal insulation, waterproofing, and acoustic performance.</p>",
     link: 'http://thisisthehouse.me'
-  }
+  },
+  {
+    place: 'Thailand, Koh Samui',
+    img: 'img/thailand-1.jpg',
+    title: 'Private Villa',
+    text: "<p>A luxury private villa set in Koh Samui’s most exclusive development.</p><p>This cliffside retreat offers complete privacy, sleek contemporary architecture, and an awe-inspiring 180° panoramic sea view — a unique escape where modern living meets natural beauty.</p>",
+    link: ''
+  },
 ]
+
+const dataReady = ref(false);
+const modalOpened = ref(false);
+const modalMessage = ref({});
+
+const requestSent = (data) => {
+  console.log('requestSent ', data)
+  modalOpened.value = true;
+  modalMessage.value = data;
+  setTimeout(() => {
+    modalOpened.value = false;
+    modalMessage.value = {};
+  }, 3000);
+}
+const closeModal = (data) => {
+  modalOpened.value = false;
+  modalMessage.value = {};
+}
+
+
+
+setTimeout(() => {
+  dataReady.value = true
+}, 2000);
 
 </script>
 
 <template>
   <div class="home">
-  <Header></Header>
-  <Hero></Hero>
-  <About></About>
-  <AnimatedComponent delay="250" animation-type="slideup" v-for="(project, index) in projects" :key="index"
-    :index="index">
-    <ProjectItem :link="project.link">
-        <template #place>{{ project.place }}</template>
-        <template #image>
-          <img :src="'/' + project.img" alt="">
-        </template>
-        <template #title>{{ project.title }}</template>
-        <template #text><div v-html="project.text"></div></template>
-    </ProjectItem>
+  <Header :dataReady="dataReady"></Header>
+  <Hero :dataReady="dataReady"></Hero>
+  <AnimatedComponent :delay="250" :animation-type="'slideup'">
+    <About :dataReady="dataReady"></About>
   </AnimatedComponent>
-  <Form></Form>
+  <section id="projects">
+    <div class="section-title">
+      <h2>Our Projects</h2>
+    </div>
+    <AnimatedComponent :delay="250" :animation-type="'slideup'" v-for="(project, index) in projects" :key="index"
+      :index="index">
+      <ProjectItem :link="project.link">
+          <template #place>{{ project.place }}</template>
+          <template #image>
+            <img :src="'/' + project.img" alt="">
+          </template>
+          <template #title>{{ project.title }}</template>
+          <template #text><div v-html="project.text"></div></template>
+      </ProjectItem>
+    </AnimatedComponent>
+  </section>
+  <Form :dataReady="dataReady" @requestSent="requestSent"></Form>
+  <Modal :modalOpened="modalOpened" :message="modalMessage" @closeModal="closeModal"></Modal>
+  <Footer></Footer>
   </div>
 </template>
 

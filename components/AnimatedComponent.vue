@@ -28,11 +28,11 @@ onMounted(() => {
         ([entry]) => {
             // console.log('entry ', entry.isIntersecting, entry.intersectionRatio)
             if (entry.isIntersecting) {
-                // setTimeout(() => {
-                //     animate.value = entry.isIntersecting;
-                //     observer.unobserve(entry.target);
-                // }, props.delay);
-                entry.target.classList.add('animate-delay');
+                setTimeout(() => {
+                    animate.value = entry.isIntersecting;
+                    observer.unobserve(entry.target);
+                }, props.delay);
+                //entry.target.classList.add('animate-delay');
             }
         },
         {

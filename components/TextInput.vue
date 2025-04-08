@@ -90,65 +90,6 @@ const selectTime = (event) => {
     </p>
   </div>
 
-  <div v-else-if="type == 'number-range'"
-    class="text-input"
-    :class="{ 'has-error': !!errorMessage, success: meta.valid }"
-  >
-    <label :for="name">{{ label }}</label>
-    <v-number-input
-        class="number-range"
-        :name="name"
-        v-model="value" 
-        :reverse="false"
-        controlVariant="split"
-        label=""
-        :hideInput="false"
-        :inset="false"
-        :min="0"
-        variant="outlined"
-        density="default"
-      ></v-number-input>
-
-    <p class="help-message" v-show="errorMessage">
-      {{ errorMessage }}
-    </p>
-  </div>
-
-  <div v-else-if="type == 'datepicker'"
-    class="text-input"
-    :class="{ 'has-error': !!errorMessage, success: meta.valid }"
-  >
-    <label :for="name">{{ label }}</label>
-    <vue-date-picker 
-      :name="name"
-      v-model="value" 
-      :enableTimePicker="false"
-      auto-apply
-    ></vue-date-picker>
-
-    <p class="help-message" v-show="errorMessage">
-      {{ errorMessage }}
-    </p>
-  </div>
-
-  <div v-else-if="type == 'select'"
-    class="text-input"
-    :class="{ 'has-error': !!errorMessage, success: meta.valid }"
-  >
-    <label :for="name">{{ label }}</label>
-    <SelectInput
-      :name="name"
-      :options="['18:00', '19:00', '20:00', '21:00', '22:00', '23:00']"
-      :default="value"
-      class="select"
-      @input="selectTime($event)"
-    />
-
-    <p class="help-message" v-show="errorMessage">
-      {{ errorMessage }}
-    </p>
-  </div>
-
   <div v-else-if="type == 'textarea'"
     class="text-input"
     :class="{ 'has-error': !!errorMessage, success: meta.valid }"
@@ -214,7 +155,7 @@ textarea {
   border-radius: 0px;
   border: 1px solid #BDBDBD;
   border-radius: 4px;
-  padding: 12px 10px;
+  padding: 15px 10px;
   outline: none;
   background-color: #ffffff;
   width: 100%;

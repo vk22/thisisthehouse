@@ -11,8 +11,8 @@
           <img src="/img/logo.png" class="white" alt="" />
         </div>
         <ul>
-          <li><NuxtLink :to="'#'">About Us</NuxtLink></li>
-          <li><NuxtLink :to="'#'">Out projects</NuxtLink></li>
+          <li><span class="link" @click="smoothScrollTo('about')">About Us</span></li>
+          <li><span class="link" @click="smoothScrollTo('projects')">Out projects</span></li>
         </ul>
       </div>
       <hr />
@@ -21,7 +21,7 @@
           <span class="whatsapp-ic"></span>
           <span class="whatsapp-text">whatsapp</span>
         </a>
-        <button class="btn">Get In Touch</button>
+        <button class="btn" @click="smoothScrollTo('forma')">Get In Touch</button>
       </div>
     </div>
     <div class="main-menu-mobile__background" @click="toggleMenu()"></div>
@@ -33,8 +33,8 @@
   <div class="header-l">
     <div class="main-menu">
       <ul>
-        <li><NuxtLink :to="'#'">About Us</NuxtLink></li>
-        <li><NuxtLink :to="'#'">Out projects</NuxtLink></li>
+        <li><span class="link" @click="smoothScrollTo('about')">About Us</span></li>
+        <li><span class="link" @click="smoothScrollTo('projects')">Out projects</span></li>
       </ul>
     </div>
     <div class="icon-nav" @click="toggleMenu()">
@@ -54,7 +54,7 @@
       <span class="whatsapp-ic"></span>
       <span class="whatsapp-text">whatsapp</span>
     </a>
-    <button class="btn">Get In Touch</button>
+    <button class="btn" @click="smoothScrollTo('forma')">Get In Touch</button>
   </div>
  </header>
 </template>
@@ -75,9 +75,26 @@ import { onMounted, ref, watch } from "vue";
      isScrolled.value = false;
     }
   };
-
   const toggleMenu = () => {
     mobileNavIsOpened.value = !mobileNavIsOpened.value;
+  }
+
+  const closeMenu = () => {
+    mobileNavIsOpened.value = false
+  }
+
+  const smoothScrollTo = (id) => {
+    console.log('smoothScrollTo ', id)
+    if (!id) return;
+    const target = document.getElementById(id);
+    if (!target) return;
+    const yOffset = -75;
+    const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    console.log('y ', y)
+    window.scrollTo({ top: y, behavior: "smooth" });
+    setTimeout(() => {
+      closeMenu();
+    }, 500);
   }
 
   onMounted(() => {
@@ -129,9 +146,12 @@ import { onMounted, ref, watch } from "vue";
     display: flex;
     li {
       padding: 1rem;
-      a {
+      .link {
         font-family: $font-sans;
         text-transform: uppercase;
+        font-size: .9rem;
+        font-weight: 500;
+        cursor: pointer;
       }
     }
   }
@@ -236,6 +256,8 @@ import { onMounted, ref, watch } from "vue";
     .whatsapp-text {
       margin-left: 4px;
       text-transform: uppercase;
+      font-size: .9rem;
+      font-weight: 500;
       @include for-phone-only {
         display: none;
       }
@@ -247,14 +269,13 @@ import { onMounted, ref, watch } from "vue";
   }
 
   .btn {
+    margin-left: 2rem;
     @include for-phone-only {
       display: none;
     }
-
     @include for-tablet-portrait-up {
       display: block;
     }
-    margin-left: 1rem;
   }
  }
 
@@ -397,17 +418,17 @@ import { onMounted, ref, watch } from "vue";
     top: 0px;
     img {
       @include for-phone-only {
-      width: 112px;
+      width: 115px;
       }
       @include for-tablet-portrait-up {
-      width: 112px;
+      width: 115px;
       }
 
       @include for-desktop-up {
-      width: 112px;
+      width: 115px;
       }
       @include for-700-height-only {
-      width: 112px;
+      width: 115px;
       }
     }
   //  .black {
@@ -485,13 +506,14 @@ import { onMounted, ref, watch } from "vue";
       }
 
 
-      a {
+      .link {
         font-family: $font-sans;
         text-transform: uppercase;
         color: $text-color;
         letter-spacing: 1px;
         color: #262626;
         text-decoration: none;
+        cursor: pointer;
 
         @include for-phone-only {
           font-size: 1.25rem;

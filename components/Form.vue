@@ -1,6 +1,6 @@
 
 <template>
-  <div class="feedback-form">
+  <section class="feedback-form" id="forma">
     <div class="feedback-form__heading">
       <h2>Get In Touch</h2>
     </div>
@@ -66,16 +66,23 @@
       </div>
       <div class="form-row">
         <div class="form-col-100">
-            <button class="btn w-100 black submit-btn" type="submit">Submit</button>
+          <button class="btn w-100 black submit-btn" type="submit">
+            Submit
+          </button>
         </div>
       </div>
     </Form>
-  </div>
+  </section>
 </template>
   
 <script setup>
 import { Form, useField, ErrorMessage } from "vee-validate";
 const props = defineProps(["mode", "title"]);
+const emits = defineEmits(['requestSent']); 
+
+const requestSent = (message) => {
+  emits('requestSent', message);
+}
 
 const file = useField("file");
 const filename = ref(undefined);
@@ -106,22 +113,21 @@ const schema = {
       return "The email field must be a valid email.";
     }
   },
-  persons(value) {
-    if (value) return true;
-    return "Choose persons count";
-  },
-  date(value) {
-    if (value) return true;
-    return "Select date";
-  },
-  time(value) {
-    if (value) return true;
-    return "Select time";
-  },
 };
 
 async function onSubmit(values, { resetForm }) {
   // await storeReservaton.postData(values)
+  console.log('values ', values)
+  const { data, status } = await useFetch(`/api/requests`, {
+        method: 'POST',
+        body: values
+  });
+  console.log('data ', data.value)
+  console.log('status ', status.value)
+
+  if (data.value.success) {
+    requestSent(data.value.message)
+  }
   resetForm();
 }
 
@@ -143,22 +149,19 @@ const selectTime = (event) => {
 @import "assets/scss/base.scss";
 
 .feedback-form {
-    padding: 7rem 1rem;
 
-    @include for-phone-only {
-        width: 100%;
-        max-width: 100%;
-    }
+  @include for-phone-only {
+    width: 100%;
+    max-width: 100%;
+    padding: 5rem 1rem;
+  }
 
-    @include for-tablet-portrait-up {
-        width: 100%;
-        max-width: 900px;
-    }
+  @include for-tablet-portrait-up {
+    width: 100%;
+    max-width: 900px;
+    padding: 10rem 1rem;
+  }
 
-    @include for-700-height-only {
-        width: 100%;
-        max-width: 900px;
-    }
 
   &__heading {
     letter-spacing: 1px;
@@ -199,41 +202,41 @@ const selectTime = (event) => {
     // }
 
     .form-row {
-        display: flex;
-        @include for-phone-only {
-            flex-direction: column;
-        }
+      display: flex;
+      @include for-phone-only {
+        flex-direction: column;
+      }
 
-        @include for-tablet-portrait-up {
-            flex-direction: row;
-        }
+      @include for-tablet-portrait-up {
+        flex-direction: row;
+      }
     }
 
     .form-col-50 {
-        margin-bottom: 1rem;
-        @include for-phone-only {
-            padding: 0 1rem;
-            flex-basis: 100%;
-        }
+      margin-bottom: 1rem;
+      @include for-phone-only {
+        padding: 0 1rem;
+        flex-basis: 100%;
+      }
 
-        @include for-tablet-portrait-up {
-            padding: 0 1rem;
-            flex-basis: 50%;
-        }
+      @include for-tablet-portrait-up {
+        padding: 0 1rem;
+        flex-basis: 50%;
+      }
     }
 
     .form-col-100 {
-        margin-bottom: 1rem;
-        @include for-phone-only {
-            padding: 0 1rem;
-            flex-basis: 100%;
-        }
+      margin-bottom: 1rem;
+      @include for-phone-only {
+        padding: 0 1rem;
+        flex-basis: 100%;
+      }
 
-        @include for-tablet-portrait-up {
-            padding: 0 1rem;
-            flex-basis: 100%;
-        }
-        }
+      @include for-tablet-portrait-up {
+        padding: 0 1rem;
+        flex-basis: 100%;
+      }
+    }
 
     .form-full {
       padding: 0 1rem;
@@ -284,7 +287,6 @@ const selectTime = (event) => {
       }
     }
   }
-
 
   &__footer {
     justify-content: flex-end !important;

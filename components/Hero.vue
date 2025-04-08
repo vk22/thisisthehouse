@@ -65,15 +65,16 @@ onMounted(() => {
         .hero-title {
             text-transform: uppercase;
             margin-bottom: 2rem;
+            font-weight: 600;
 
             @include for-phone-only {
-                font-size: 2.5rem;
-                line-height: 3rem;
+                font-size: 3.5rem;
+                line-height: 3.5rem;
             }
 
             @include for-tablet-portrait-up {
-                font-size: 4.5rem;
-                line-height: 5rem;
+                font-size: 5rem;
+                line-height: 5.5rem;
             }
 
         }

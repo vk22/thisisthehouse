@@ -283,3 +283,11 @@ img {
   z-index: 10;
 }
 
+.section-title {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px #ddd solid;
+  padding: 3rem 0;
+}
