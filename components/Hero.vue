@@ -68,13 +68,13 @@ onMounted(() => {
             font-weight: 600;
 
             @include for-phone-only {
-                font-size: 3.5rem;
-                line-height: 3.5rem;
+                font-size: 2.5rem;
+                line-height: 3rem;
             }
 
             @include for-tablet-portrait-up {
-                font-size: 5rem;
-                line-height: 5.5rem;
+                font-size: 3.5rem;
+                line-height: 4rem;
             }
 
         }

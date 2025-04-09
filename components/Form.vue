@@ -77,7 +77,7 @@
   
 <script setup>
 import { Form, useField, ErrorMessage } from "vee-validate";
-const props = defineProps(["mode", "title"]);
+// const props = defineProps(["mode", "title"]);
 const emits = defineEmits(['requestSent']); 
 
 const requestSent = (message) => {

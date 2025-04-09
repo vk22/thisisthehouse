@@ -1,6 +1,7 @@
 <script setup>
 import Header from '~/components/Header.vue';
 import Hero from '~/components/Hero.vue';
+import ImageSlider from '~/components/ImageSlider.vue';
 
 const config = useRuntimeConfig();
 console.log('config ', config)
@@ -8,21 +9,29 @@ console.log('config ', config)
 const projects = [
   { 
     place: 'Spain, Marbella ',
-    img: 'img/thalassa-1.jpg',
+    images: [
+      'img/thalassa-1.jpg', 
+      'img/thalassa-2.jpg',
+      'img/thalassa-3.jpg',
+      'img/thalassa-4.jpg',
+      'img/thalassa-5.jpg',
+      'img/thalassa-6.jpg',
+      'img/thalassa-7.jpg'
+    ],
     title: 'Villa Thalassa',
     text: "<p>Perched atop a hill in the protected Al Cuz Cuz nature reserve, Villa Thalassa enjoys uninterrupted south-facing views of the Mediterranean Sea. This 3,000 m² estate features 12 bedrooms, a fully equipped gym, sauna, private cinema, dance floor with DJ bar, spa zone, cigar lounge, and a garage for four cars.</p><p>Outside, expansive terraces and landscaped gardens surround the property, which is powered by a self-sustaining 50kW solar energy station.</p>",
     link: 'https://villathalassa.co.uk/'
   },
   {
     place: 'Montenegro, Kotor',
-    img: 'img/kotor-1.jpg',
+    images: ['img/kotor-1.jpg', 'img/kotor-2.jpg', 'img/kotor-3.jpg'],
     title: 'The House',
     text: "<p>Set on a hillside above the Bay of Kotor — Europe’s southernmost fjord — The House is a residential compound of five architecturally distinct buildings.</p><p>Designed with seismic resilience in mind, the structures feature monolithic frames and brick infill. The 300 mm travertine-clad exterior walls are built over a four-layer “warm ceramics” system that ensures top-tier thermal insulation, waterproofing, and acoustic performance.</p>",
     link: 'http://thisisthehouse.me'
   },
   {
     place: 'Thailand, Koh Samui',
-    img: 'img/thailand-1.jpg',
+    images: ['img/thailand-1.jpg', 'img/thailand-2.jpg'],
     title: 'Private Villa',
     text: "<p>A luxury private villa set in Koh Samui’s most exclusive development.</p><p>This cliffside retreat offers complete privacy, sleek contemporary architecture, and an awe-inspiring 180° panoramic sea view — a unique escape where modern living meets natural beauty.</p>",
     link: ''
@@ -62,17 +71,15 @@ setTimeout(() => {
   <AnimatedComponent :delay="250" :animation-type="'slideup'">
     <About :dataReady="dataReady"></About>
   </AnimatedComponent>
+  <!-- <ImageSlider></ImageSlider> -->
   <section id="projects">
     <div class="section-title">
       <h2>Our Projects</h2>
     </div>
     <AnimatedComponent :delay="250" :animation-type="'slideup'" v-for="(project, index) in projects" :key="index"
       :index="index">
-      <ProjectItem :link="project.link">
+      <ProjectItem :link="project.link" :slides="project.images">
           <template #place>{{ project.place }}</template>
-          <template #image>
-            <img :src="'/' + project.img" alt="">
-          </template>
           <template #title>{{ project.title }}</template>
           <template #text><div v-html="project.text"></div></template>
       </ProjectItem>

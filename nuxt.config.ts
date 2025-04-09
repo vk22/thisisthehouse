@@ -16,6 +16,10 @@ export default defineNuxtConfig({
       allowedHosts: ['thisisthehouse.com'],
     },
   },
+  modules: [
+    '@nuxt/image',
+    'nuxt-swiper'
+  ],
   nitro: {
     plugins: ["~/server/plugins/mongodb.ts"],
   },

@@ -3,8 +3,8 @@
       <div class="project-place">
         <slot name="place"></slot>
       </div>
-      <div class="project-img">
-          <slot name="image"></slot>
+      <div class="project-gallery">
+         <ImageSlider :slides="slides"></ImageSlider>
       </div>
       <div class="project-details">
         <div class="title">
@@ -26,6 +26,7 @@
   
   const props = defineProps({
     link: String,
+    slides: Array
   })
   </script>
   
@@ -33,7 +34,7 @@
   @import "/assets/scss/base.scss";
   
   .project-item {
-    padding: 3rem;
+    padding: 3rem 0;
     text-align: center;
     margin-top: 2rem;
     display: flex;
@@ -44,17 +45,21 @@
 
     @include for-phone-only {
       width: 100vw;
+      padding: 1rem 0;
     }
     @include for-tablet-portrait-up {
       width: 100vw;
+      padding: 3rem 0;
     }
     @include for-desktop-up {
       width: 100vw;
+      padding: 3rem 0;
     }
 
   }
   
-  .project-img {
+  .project-gallery {
+    width: 100%;
     padding: 1rem 0;
 
     img {

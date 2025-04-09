@@ -28,6 +28,7 @@ import { onMounted, ref, watch } from "vue";
     }
 
     @include for-phone-only {
+      padding: 2rem 1rem 2rem;
       width: 100vw;
     }
     @include for-tablet-portrait-up {
