@@ -7,9 +7,9 @@
          <ImageSlider :slides="slides"></ImageSlider>
       </div>
       <div class="project-details">
-        <div class="title">
+        <h2 class="title">
           <slot name="title"></slot>
-        </div>
+        </h2>
         <div class="text">
           <slot name="text"></slot>
         </div>
@@ -34,7 +34,6 @@
   @import "/assets/scss/base.scss";
   
   .project-item {
-    padding: 3rem 0;
     text-align: center;
     margin-top: 2rem;
     display: flex;
@@ -49,11 +48,11 @@
     }
     @include for-tablet-portrait-up {
       width: 100vw;
-      padding: 3rem 0;
+      padding: 2rem 0;
     }
     @include for-desktop-up {
       width: 100vw;
-      padding: 3rem 0;
+      padding: 2rem 0;
     }
 
   }
@@ -70,29 +69,32 @@
   }
 
   .project-place { 
-    font-size: 2rem;
-    font-weight: 600;
+    font-family: $font-serif;
+    font-style: italic;
+    font-size: 3rem;
+    font-weight: 400;
     padding: 2rem;
   }
   
 
   .project-details {
-    padding: 1rem;
+
 
     @include for-phone-only {
+      padding: 1rem;
       width: 100vw;
     }
     @include for-tablet-portrait-up {
+      padding: 2rem;
       width: 100vw;
     }
     @include for-desktop-up {
+      padding: 2rem;
       width: 50vw;
     }
     flex: 1;
 
     .title {
-      font-size: 2rem;
-      font-weight: 600;
       padding: 1rem;
     }
     

@@ -60,7 +60,7 @@ const closeModal = (data) => {
 
 setTimeout(() => {
   dataReady.value = true
-}, 2000);
+}, 500);
 
 </script>
 
@@ -73,9 +73,11 @@ setTimeout(() => {
   </AnimatedComponent>
   <!-- <ImageSlider></ImageSlider> -->
   <section id="projects">
-    <div class="section-title">
-      <h2>Our Projects</h2>
-    </div>
+    <AnimatedComponent :delay="250" :animation-type="'slideup'">
+      <div class="section-title">
+        <h2>Our Projects</h2>
+      </div>
+    </AnimatedComponent>
     <AnimatedComponent :delay="250" :animation-type="'slideup'" v-for="(project, index) in projects" :key="index"
       :index="index">
       <ProjectItem :link="project.link" :slides="project.images">
@@ -85,7 +87,9 @@ setTimeout(() => {
       </ProjectItem>
     </AnimatedComponent>
   </section>
-  <Form :dataReady="dataReady" @requestSent="requestSent"></Form>
+  <AnimatedComponent :delay="250" :animation-type="'slideup'">
+    <Form :dataReady="dataReady" @requestSent="requestSent"></Form>
+  </AnimatedComponent>
   <Modal :modalOpened="modalOpened" :message="modalMessage" @closeModal="closeModal"></Modal>
   <Footer></Footer>
   </div>

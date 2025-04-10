@@ -149,7 +149,7 @@ const selectTime = (event) => {
 @import "assets/scss/base.scss";
 
 .feedback-form {
-
+  margin: 0 auto;
   @include for-phone-only {
     width: 100%;
     max-width: 100%;

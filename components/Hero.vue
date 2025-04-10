@@ -1,6 +1,6 @@
 <template>
     <section class="hero">
-        <div class="hero__content">
+        <div class="hero__content fadeUpBlock" :class="{'show': dataReady}">
             <div class="hero-title">
                 Homes Designed<br>to Be Lived In
             </div>
@@ -8,8 +8,8 @@
                 Not just built — crafted
             </div>
         </div>    
-        <div class="hero__bg">
-            <img src="/img/top-img.jpg" alt="">
+        <div class="hero__bg fadeUpBlock" :class="{'show': dataReady}">
+            <NuxtImg src="/img/top-img.jpg" alt="" loading="lazy" />
         </div>
     </section>
 </template>
@@ -27,10 +27,31 @@ onMounted(() => {
       
 <style lang="scss" scoped>
 @import "/assets/scss/base.scss";
+
+.fadeUpBlock {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease;
+    &.show {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.fadeUpBlock2 {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease .5s;
+    &.show {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
    
 .hero {
     position: relative;
-    background-color: #081427;
+    background-color: #fff;
     height: 80vh;
     width: 100%;
     overflow: hidden;
@@ -96,6 +117,7 @@ onMounted(() => {
     }
 
     &__bg {
+        
         bottom: 0;
         left: 0;
         position: absolute;

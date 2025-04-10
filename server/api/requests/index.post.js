@@ -22,6 +22,26 @@ export default defineEventHandler( async (event) => {
     console.log('body ', body)
     const newRequest = new Request(body);
     const saving = await newRequest.save();
+
+    //// 
+    const { sendMail } = useNodeMailer();
+    const emailTo = 'sales@thisisthehouse.com';
+    const userMessage = body.message ? body.message : ''
+    const html = `<p>First Name: ${body.name1}</p> 
+                  <p>Last Name: ${body.name2}</p> 
+                  <p>Email: ${body.email}</p> 
+                  <p>Phone: ${body.phone}</p>
+                  <p>Message: ${userMessage}</p>`;
+    const message = {
+      to: emailTo,
+      subject: 'Site Request',
+      text: '',
+      html: html,
+    };
+
+    const sendMailResponse = await sendMail(message);
+    console.log('sendMailResponse ', sendMailResponse)
+
     if (saving) {
       return result.success
     } else {

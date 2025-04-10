@@ -41,7 +41,7 @@
 
 
 $font-sans: 'Montserrat', sans-serif;
-$font-serif: 'Melodrama', "Libre Caslon Display", serif;
+$font-serif: "Libre Caslon Display", serif;
 $mainColor: #111;
 $mainColorHover: #000; 
 $colorBlue: #12223b;
@@ -117,13 +117,13 @@ body {
 
 h1 {
   @include for-phone-only {
-    font-size: 4rem;
-    line-height: 4.5rem;
+    font-size: 2.5rem;
+    line-height: 2.75rem;
   }
 
   @include for-tablet-portrait-up {
-    font-size: 4.5rem;
-    line-height: 5rem;
+    font-size: 2.75rem;
+    line-height: 3rem;
   }
 }
 
@@ -135,7 +135,7 @@ h2 {
   }
 
   @include for-tablet-portrait-up {
-    font-size: 2.75rem;
+    font-size: 2.5rem;
     line-height: 3rem;
   }
 }
@@ -148,7 +148,7 @@ h3 {
   }
 
   @include for-tablet-portrait-up {
-    font-size: 1.5rem;
+    font-size: 2rem;
     line-height: 2rem;
   }
 }

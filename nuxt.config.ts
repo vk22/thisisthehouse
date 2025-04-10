@@ -18,8 +18,19 @@ export default defineNuxtConfig({
   },
   modules: [
     '@nuxt/image',
-    'nuxt-swiper'
+    'nuxt-swiper',
+    'nuxt-nodemailer'
   ],
+  nodemailer: {
+    from: '"Site Form" <info@thisisthehouse.com',
+    host: 'smtp.zoho.eu',
+    port: 465,
+    secure: true,
+    auth: {
+      user: 'info@thisisthehouse.com',
+      pass: '',
+    },
+  },
   nitro: {
     plugins: ["~/server/plugins/mongodb.ts"],
   },

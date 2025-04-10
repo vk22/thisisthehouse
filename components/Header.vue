@@ -28,7 +28,7 @@
   </div>
 <header
   class="main-header"
-  :class="[{ small: isScrolled }, { 'fadeIn-1': dataReady }]"
+  :class="[{ small: isScrolled }, { 'show': dataReady }]"
  >
   <div class="header-l">
     <div class="main-menu">
@@ -114,6 +114,14 @@ import { onMounted, ref, watch } from "vue";
   z-index: 999;
   width: 100vw;
   padding: 1.5rem 2rem;
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: all 1s ease;
+
+  &.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
 
   @include for-phone-only {
     align-items: center; 

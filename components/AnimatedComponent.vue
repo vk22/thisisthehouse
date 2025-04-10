@@ -46,6 +46,10 @@ onMounted(() => {
 
 
 <style scoped>
+
+.visible {
+    width: 100%;
+}
 .animated-component.fade-enter-from,
 .animated-component.slideup-enter-from {
     transition: none;
