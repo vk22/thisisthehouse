@@ -53,6 +53,13 @@ const projects = [
     text: "<p>A luxury private 1,000 m² villa set in Koh Samui’s most exclusive development.</p><p>This cliffside retreat offers complete privacy, sleek contemporary architecture, and an awe-inspiring 180° panoramic sea view — a unique escape where modern living meets natural beauty.</p>",
     link: ''
   },
+  {
+    place: 'Usa, California, Malibu',
+    images: ['img/california-1.jpg'],
+    title: 'Villa OM',
+    text: "<p>Refined coastal luxury. An icon of California living.</p><p>Tucked between dramatic cliffs and secluded beaches, this private 1,200 m² villa offers rare scale, bold architecture, and cinematic views — in one of the most exclusive enclaves on the West Coast.</p>",
+    link: ''
+  },
 ]
 
 const dataReady = ref(false);
@@ -78,9 +85,6 @@ const closeModal = (data) => {
 }
 
 
-
-
-
 </script>
 
 <template>
@@ -99,7 +103,7 @@ const closeModal = (data) => {
     </AnimatedComponent>
     <AnimatedComponent :delay="250" :animation-type="'slideup'" v-for="(project, index) in projects" :key="index"
       :index="index">
-      <ProjectItem :link="project.link" :slides="project.images">
+      <ProjectItem :link="project.link" :slides="project.images" :title="project.title">
           <template #place>{{ project.place }}</template>
           <template #title>{{ project.title }}</template>
           <template #text><div v-html="project.text"></div></template>

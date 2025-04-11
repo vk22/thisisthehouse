@@ -19,7 +19,8 @@
           </a>
         </div>
         <div class="coming-soon" v-else>
-          <p>Crafted for 2027. Full reveal coming soon.</p>
+          <p v-if="title === 'Villa Shanti'">Crafted for 2027. Full reveal coming soon.</p>
+          <p v-if="title === 'Villa OM'">Details coming soon.</p>
         </div>
       </div>
     </div>
@@ -28,6 +29,7 @@
   <script setup>
   
   const props = defineProps({
+    title: String,
     link: String,
     slides: Array
   })
