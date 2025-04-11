@@ -75,8 +75,8 @@
     padding: 2rem;
 
     @include for-phone-only {
-      font-size: 2.5rem;
-      line-height: 2.75rem;
+      font-size: 2rem;
+      line-height: 2.5rem;
       width: 100vw;
       padding: 1rem 0;
     }
