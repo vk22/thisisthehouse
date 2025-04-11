@@ -22,7 +22,7 @@
 </script>
   
 <style lang="scss" scoped>
-@import "assets/scss/base.scss";
+@use "/assets/scss/base.scss" as *;
 
 footer {
   width: 100%;

@@ -16,6 +16,14 @@ export default defineNuxtConfig({
     server: {
       allowedHosts: ['thisisthehouse.com'],
     },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern-compiler',
+          additionalData: '@use "@/assets/scss/base.scss" as *;',
+        },
+      },
+    },
   },
   modules: [
     '@nuxt/image',

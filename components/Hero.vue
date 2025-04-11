@@ -26,7 +26,7 @@ onMounted(() => {
 </script>
       
 <style lang="scss" scoped>
-@import "/assets/scss/base.scss";
+
 
 .fadeUpBlock {
     opacity: 0;

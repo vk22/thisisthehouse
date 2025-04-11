@@ -36,7 +36,7 @@
   </script>
   
   <style lang="scss" scoped>
-  @import "/assets/scss/base.scss";
+
   
   .project-item {
     text-align: center;
@@ -91,7 +91,7 @@
 
   .project-details {
 
-
+    flex: 1;
     @include for-phone-only {
       padding: 1rem;
       width: 100vw;
@@ -104,7 +104,7 @@
       padding: 4rem 2rem 0;
       width: 50vw;
     }
-    flex: 1;
+    
 
     .title {
       padding: 1rem;

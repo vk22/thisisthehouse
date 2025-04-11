@@ -60,7 +60,7 @@ const closeModal = () => {
 
   
 <style lang="scss">
-@import "assets/scss/base.scss";
+
 
 .slideup-enter-active,
 .slideup-leave-active {

@@ -3,9 +3,6 @@ import Header from '~/components/Header.vue';
 import Hero from '~/components/Hero.vue';
 import ImageSlider from '~/components/ImageSlider.vue';
 
-const config = useRuntimeConfig();
-console.log('config ', config)
-
 const projects = [
   { 
     place: 'Spain, Marbella ',
@@ -119,7 +116,6 @@ const closeModal = (data) => {
 </template>
 
 <style lang="scss">
-@import "/assets/scss/base.scss";
 
 .home {
   padding-top: 90px;

@@ -146,7 +146,6 @@ const selectTime = (event) => {
   
   
 <style lang="scss">
-@import "assets/scss/base.scss";
 
 .feedback-form {
   margin: 0 auto;

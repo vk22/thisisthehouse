@@ -112,7 +112,7 @@ const selectTime = (event) => {
 </template>
 
 <style lang="scss" scoped>
-@import "assets/scss/base.scss";
+
 .text-input {
   position: relative;
   width: 100%;

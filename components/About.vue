@@ -17,7 +17,6 @@ import { onMounted, ref, watch } from "vue";
 </script>
   
 <style lang="scss" scoped>
-@import "/assets/scss/base.scss";
 
 .about-text {
     text-align: center;

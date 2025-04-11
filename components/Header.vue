@@ -103,7 +103,7 @@ import { onMounted, ref, watch } from "vue";
 </script>
   
 <style lang="scss" scoped>
-@import "/assets/scss/base.scss";
+
 
 .main-header {
   position: fixed;
