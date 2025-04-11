@@ -12,7 +12,7 @@
         </div>
         <ul>
           <li><span class="link" @click="smoothScrollTo('about')">About Us</span></li>
-          <li><span class="link" @click="smoothScrollTo('projects')">Out projects</span></li>
+          <li><span class="link" @click="smoothScrollTo('projects')">Our projects</span></li>
         </ul>
       </div>
       <hr />
@@ -34,7 +34,7 @@
     <div class="main-menu">
       <ul>
         <li><span class="link" @click="smoothScrollTo('about')">About Us</span></li>
-        <li><span class="link" @click="smoothScrollTo('projects')">Out projects</span></li>
+        <li><span class="link" @click="smoothScrollTo('projects')">Our projects</span></li>
       </ul>
     </div>
     <div class="icon-nav" @click="toggleMenu()">

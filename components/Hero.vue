@@ -5,7 +5,7 @@
                 Homes Designed<br>to Be Lived In
             </div>
             <div class="hero-subtitle">
-                Not just built — crafted
+                Not just built — crafted to inspire
             </div>
         </div>    
         <div class="hero__bg fadeUpBlock" :class="{'show': dataReady}">
@@ -110,7 +110,7 @@ onMounted(() => {
 
             @include for-tablet-portrait-up {
                 font-size: 1.25rem;
-                line-height: 1.25rem;
+                line-height: 1.35rem;
             }
 
         }
