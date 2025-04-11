@@ -10,12 +10,13 @@ useSeoMeta({
   ogTitle: 'THE HOUSE PROJECT',
   description: 'Crafted With Ownership',
   ogDescription: 'Crafted With Ownership',
-  ogImage: '/img/top-img.jpg'
+  ogUrl: 'https://thisisthehouse.com/',
+  ogType: 'website',
+  ogImage: 'https://thisisthehouse.com/img/top-img.jpg'
 })
 </script>
 
 <style lang="scss">
 @import "/assets/scss/base.scss";
-
 
 </style>
