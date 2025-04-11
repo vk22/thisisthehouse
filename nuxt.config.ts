@@ -29,7 +29,7 @@ export default defineNuxtConfig({
     secure: true,
     auth: {
       user: 'info@thisisthehouse.com',
-      pass: '',
+      pass: '9Fvi41TQJK7t',
     },
   },
   nitro: {

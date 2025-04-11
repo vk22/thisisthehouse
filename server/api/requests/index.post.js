@@ -25,13 +25,14 @@ export default defineEventHandler( async (event) => {
 
     //// 
     const { sendMail } = useNodeMailer();
+    console.log('sendMail', sendMail)
     const emailTo = 'sales@thisisthehouse.com';
     const userMessage = body.message ? body.message : ''
     const html = `<p>First Name: ${body.name1}</p> 
                   <p>Last Name: ${body.name2}</p> 
                   <p>Email: ${body.email}</p> 
                   <p>Phone: ${body.phone}</p>
-                  <p>Message: ${userMessage}</p>`;
+                  <p>Message: ${userMessage}</p>`; 
     const message = {
       to: emailTo,
       subject: 'Site Request',
