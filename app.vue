@@ -12,7 +12,8 @@ useSeoMeta({
   ogDescription: 'Crafted With Ownership',
   ogUrl: 'https://thisisthehouse.com/',
   ogType: 'website',
-  ogImage: 'https://thisisthehouse.com/img/top-img.jpg'
+  ogImage: 'https://thisisthehouse.com/img/main-img.jpg',
+  twitterCard: 'summary_large_image'
 })
 </script>
 
