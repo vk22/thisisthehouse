@@ -1,11 +1,11 @@
 <template>
   <div class="gallery-container">
     <div class="gallery-nav">
-      <div class="gallery-nav__arrow swiper-prev" @click="swiper.prev()">
+      <div class="gallery-nav__arrow swiper-prev" @click="swiper.prev()" v-if="slides.length">
         <img src="/img/arrow-l2.svg" alt="" />
       </div>
       <!-- <h2>Gallery</h2> -->
-      <div class="gallery-nav__arrow swiper-next" @click="swiper.next()">
+      <div class="gallery-nav__arrow swiper-next" @click="swiper.next()" v-if="slides.length">
         <img src="/img/arrow-r2.svg" alt="" />
       </div>
     </div>
