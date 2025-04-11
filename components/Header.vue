@@ -17,7 +17,7 @@
       </div>
       <hr />
       <div class="m-bottom">
-        <a :href="'#'" class="whatsapp">
+        <a href="https://wa.me/34684355244" target="_blank" class="whatsapp">
           <span class="whatsapp-ic"></span>
           <span class="whatsapp-text">whatsapp</span>
         </a>
@@ -50,7 +50,7 @@
    </div>
   </div>
   <div class="header-r">
-    <a :href="'#'" class="whatsapp">
+    <a href="https://wa.me/34684355244" target="_blank" class="whatsapp">
       <span class="whatsapp-ic"></span>
       <span class="whatsapp-text">whatsapp</span>
     </a>
