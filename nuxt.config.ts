@@ -2,7 +2,8 @@
 export default defineNuxtConfig({
   app: {
     head: {
-      title: 'The House Project',
+      title: 'THE HOUSE PROJECT',
+      description: 'Crafted With Ownership',
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
       link: [{ rel: 'icon', type: 'image/png', href: "/img/favicon.png" }]

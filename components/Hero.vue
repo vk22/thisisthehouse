@@ -9,7 +9,7 @@
             </div>
         </div>    
         <div class="hero__bg fadeUpBlock" :class="{'show': dataReady}">
-            <NuxtImg src="/img/top-img.jpg" alt="" loading="lazy" />
+            <img src="/img/top-img.jpg" alt="" loading="lazy" />
         </div>
     </section>
 </template>
@@ -30,7 +30,7 @@ onMounted(() => {
 
 .fadeUpBlock {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(20px);
     transition: all 1s ease;
     &.show {
         transform: translateY(0);
@@ -40,7 +40,7 @@ onMounted(() => {
 
 .fadeUpBlock2 {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(20px);
     transition: all 1s ease .5s;
     &.show {
         transform: translateY(0);

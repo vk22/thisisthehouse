@@ -115,7 +115,7 @@ import { onMounted, ref, watch } from "vue";
   width: 100vw;
   padding: 1.5rem 2rem;
   opacity: 0;
-  transform: translateY(-50px);
+  transform: translateY(-20px);
   transition: all 1s ease;
 
   &.show {

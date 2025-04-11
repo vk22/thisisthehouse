@@ -18,6 +18,9 @@
             <span>Visit project website</span><span class="link-arrow"></span>
           </a>
         </div>
+        <div class="coming-soon" v-else>
+          <p>Crafted for 2027. Full reveal coming soon.</p>
+        </div>
       </div>
     </div>
   </template>
@@ -64,19 +67,19 @@
   }
 
   .project-place { 
-    font-family: $font-serif;
-    font-style: italic;
+    // font-family: $font-serif;
+    //font-style: italic;
     font-weight: 400;
     padding: 2rem;
 
     @include for-phone-only {
-      font-size: 2.75rem;
-      line-height: 3rem;
+      font-size: 2.5rem;
+      line-height: 2.75rem;
       width: 100vw;
       padding: 1rem 0;
     }
     @include for-tablet-portrait-up {
-      font-size: 3rem;
+      font-size: 2.75rem;
       line-height: 3rem;
       width: 100vw;
       padding: 2rem 0;
@@ -134,6 +137,12 @@
         background-image: url('/img/link-out.svg');
       }
       
+    }
+    .coming-soon {
+      p {
+        font-size: 1rem;
+        font-weight: 700;
+      }
     }
   }
   

@@ -1,40 +1,15 @@
 <template>
   <footer>
-    <div class="left"></div>
-    <div class="center">
+    <div class="footer-top">
       <div class="logo">
         <img src="/img/logo.png" class="white" alt="" @click="scrollToTop()" />
       </div>
-      <!-- <div class="social">
-          <a class="social-icon icon-inst" href="https://www.instagram.com/oyoyrestaurant?igsh=M3h3NDcyMml6MGp2" target="_blank"></a>
-          <a class="social-icon icon-fb" href="https://www.facebook.com/oyoy.mlt" target="_blank"></a>
-          <div class="social-icon icon-spotify"></div>
-          <div class="social-icon icon-tiktok"></div>
-        </div> -->
     </div>
-    <div class="right">
-      <!-- <div class="nav" v-if="navigation.length">
-          <ul>
-            <li v-for="(item, index) in navigation" :key="index">
-              <a
-                v-if="item"
-                class="menu-item"
-                :key="item.href"
-                :href="item.href"
-                :data-href="item.href"
-              >
-                {{ item.text }}
-              </a>
-            </li>
-          </ul>
-          <ul>
-            <li>
-              <div><router-link to="/privacy" target="_blank">Privacy Policy</router-link></div>
-              <div><router-link to="/terms" target="_blank">Terms & Conditions</router-link></div>
-            </li>
-          </ul>
-        </div> -->
+    <div class="footer-bottom">
+      <p class="sm">Copyright © 2025 - THE HOUSE PROJECT</p>
+      <div><a href="/privacy-policy" target="_blank">Privacy Policy</a></div>
     </div>
+
   </footer>
 </template>
     
@@ -52,12 +27,25 @@
 footer {
   width: 100%;
   background-color: #fff;
-  padding: 2rem 0;
+  padding: 2rem;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   color: #393939;
   font-size: 0.9rem;
   border-top: 1px solid #ddd;
+  
+
+  .footer-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
   a {
     text-decoration: none;
