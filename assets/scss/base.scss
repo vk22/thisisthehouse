@@ -130,8 +130,8 @@ h1 {
 h2 {
 
   @include for-phone-only {
-    font-size: 2rem;
-    line-height: 2.5rem;
+    font-size: 1.85rem;
+    line-height: 2rem;
   }
 
   @include for-tablet-portrait-up {
@@ -165,9 +165,17 @@ h3 {
 
 p {
   font-weight: 400;
-  line-height: 1.5;
-  font-size: 1.15rem;
   margin-bottom: 1.1rem;
+
+  @include for-phone-only {
+    line-height: 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  @include for-tablet-portrait-up {
+    line-height: 1.5rem;
+    font-size: 1.15rem;
+  }
 }
 
 .text-accent p {

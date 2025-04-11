@@ -52,7 +52,7 @@ onMounted(() => {
 .hero {
     position: relative;
     background-color: #fff;
-    height: 80vh;
+    height: 70vh;
     width: 100%;
     overflow: hidden;
     position: relative;

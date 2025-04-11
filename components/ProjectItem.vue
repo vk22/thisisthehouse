@@ -35,7 +35,6 @@
   
   .project-item {
     text-align: center;
-    margin-top: 2rem;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -44,15 +43,11 @@
 
     @include for-phone-only {
       width: 100vw;
-      padding: 1rem 0;
+      padding: 2rem 0;
     }
     @include for-tablet-portrait-up {
       width: 100vw;
-      padding: 2rem 0;
-    }
-    @include for-desktop-up {
-      width: 100vw;
-      padding: 2rem 0;
+      padding: 5rem 0;
     }
 
   }
@@ -71,9 +66,21 @@
   .project-place { 
     font-family: $font-serif;
     font-style: italic;
-    font-size: 3rem;
     font-weight: 400;
     padding: 2rem;
+
+    @include for-phone-only {
+      font-size: 2.75rem;
+      line-height: 3rem;
+      width: 100vw;
+      padding: 1rem 0;
+    }
+    @include for-tablet-portrait-up {
+      font-size: 3rem;
+      line-height: 3rem;
+      width: 100vw;
+      padding: 2rem 0;
+    }
   }
   
 
@@ -85,11 +92,11 @@
       width: 100vw;
     }
     @include for-tablet-portrait-up {
-      padding: 2rem;
+      padding: 3rem 2rem 0;
       width: 100vw;
     }
     @include for-desktop-up {
-      padding: 2rem;
+      padding: 4rem 2rem 0;
       width: 50vw;
     }
     flex: 1;

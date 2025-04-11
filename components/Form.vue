@@ -153,7 +153,7 @@ const selectTime = (event) => {
   @include for-phone-only {
     width: 100%;
     max-width: 100%;
-    padding: 5rem 1rem;
+    padding: 4rem 1rem;
   }
 
   @include for-tablet-portrait-up {
@@ -168,18 +168,20 @@ const selectTime = (event) => {
     font-weight: 400;
     line-height: 1.45;
     text-align: center;
-    margin: 0px 0 5rem;
 
     @include for-phone-only {
       font-size: 1.15rem;
+      margin-bottom: 3rem;
     }
 
     @include for-tablet-portrait-up {
       font-size: 1.25rem;
+      margin-bottom: 4rem;
     }
 
     @include for-desktop-up {
       font-size: 1.75rem;
+      margin-bottom: 5rem;
     }
   }
 

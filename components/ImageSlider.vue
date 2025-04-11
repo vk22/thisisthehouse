@@ -87,23 +87,36 @@ swiper-slide {
 
   &__arrow {
     cursor: pointer;
-    margin: 0 1rem;
     position: absolute;
     top: 50%;
+    transform: translateY(-50%) ;
     width: 42px;
     z-index: 99;
     background-color: rgba(255, 255, 255, 0.95);
     padding: 15px;
     display: flex;
-    border-radius: 4px;
+    border-radius: 1px;
     @include base-transition(background-color, 0.25s);
 
     &.swiper-next {
-      right: 2rem;
+      
+      @include for-phone-only {
+        right: 0rem;
+        border-radius: 0px;
+      }
+      @include for-tablet-portrait-up {
+        right: 2rem;
+      }
     }
 
     &.swiper-prev {
-      left: 2rem;
+      @include for-phone-only {
+        left: 0rem;
+        border-radius: 0px;
+      }
+      @include for-tablet-portrait-up {
+        left: 2rem;
+      }
     }
 
     &.hide {
