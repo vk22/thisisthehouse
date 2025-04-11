@@ -22,7 +22,8 @@ export default defineNuxtConfig({
     'nuxt-nodemailer'
   ],
   nodemailer: {
-    from: '"Site Form" <info@thisisthehouse.com',
+    from: '"Site Form" <info@thisisthehouse.com>',
+    to: 'sales@thisisthehouse.com',
     host: 'smtp.zoho.eu',
     port: 465,
     secure: true,
