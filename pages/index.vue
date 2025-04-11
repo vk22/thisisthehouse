@@ -32,7 +32,15 @@ const projects = [
       'img/kotor-5.jpg',
       'img/kotor-6.jpg',
       'img/kotor-7.jpg',
-      'img/kotor-8.jpg'
+      'img/kotor-8.jpg',
+      'img/kotor-9.jpg',
+      'img/kotor-10.jpg',
+      'img/kotor-11.jpg',
+      'img/kotor-12.jpg',
+      'img/kotor-13.jpg',
+      'img/kotor-14.jpg',
+      'img/kotor-15.jpg',
+      'img/kotor-16.jpg'
     ],
     title: 'The House',
     text: "<p>Set on a hillside above the Bay of Kotor — Europe’s southernmost fjord — The House is a residential compound of five architecturally distinct buildings.</p><p>Designed with seismic resilience in mind, the structures feature monolithic frames and brick infill. The 300 mm travertine-clad exterior walls are built over a four-layer “warm ceramics” system that ensures top-tier thermal insulation, waterproofing, and acoustic performance.</p>",
@@ -48,6 +56,10 @@ const projects = [
 ]
 
 const dataReady = ref(false);
+setTimeout(() => {
+  dataReady.value = true
+}, 500);
+
 const modalOpened = ref(false);
 const modalMessage = ref({});
 
@@ -67,9 +79,7 @@ const closeModal = (data) => {
 
 
 
-setTimeout(() => {
-  dataReady.value = true
-}, 500);
+
 
 </script>
 
