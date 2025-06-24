@@ -45,7 +45,18 @@ const projects = [
   },
   {
     place: 'Thailand, Koh Samui',
-    images: ['img/thailand-1.jpg', 'img/thailand-2.jpg'],
+    images: [
+      'img/thailand-1.jpg', 
+      'img/thailand-2.jpg',
+      'img/thailand-3.jpg', 
+      'img/thailand-4.jpg',
+      'img/thailand-5.jpg', 
+      'img/thailand-6.jpg',
+      'img/thailand-7.jpg', 
+      'img/thailand-8.jpg',
+      'img/thailand-9.jpg', 
+      'img/thailand-10.jpg'
+    ],
     title: 'Villa Shanti',
     text: "<p>A luxury private 1,000 m² villa set in Koh Samui’s most exclusive development.</p><p>This cliffside retreat offers complete privacy, sleek contemporary architecture, and an awe-inspiring 180° panoramic sea view — a unique escape where modern living meets natural beauty.</p>",
     link: ''
