@@ -12,9 +12,9 @@ const dataReady = ref(true);
 
 useSeoMeta({
     title: () => project.title,
-    description: () => project.text,
+    description: () => project.description,
     ogTitle: () => project.title,
-    ogDescription: () => project.text,
+    ogDescription: () => project.description,
     ogImage: () => `https://thisisthehouse.com/${project?.thumbnail}`,
     ogImageSecureUrl: () => `https://thisisthehouse.com/${project?.thumbnail}`,
     ogImage_alt: () => project.title,
@@ -22,7 +22,7 @@ useSeoMeta({
     ogUrl: () => `https://thisisthehouse.com/projects/${project.id}`,
     twitterCard: () => "summary_large_image",
     twitterTitle: () => project.title,
-    twitterDescription: () => project.text,
+    twitterDescription: () => project.description,
     twitterImage: () => project.thumbnail,
     ogUpdated_time: () => +new Date(),
 })
