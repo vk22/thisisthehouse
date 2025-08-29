@@ -13,7 +13,7 @@
     <ClientOnly>
       <swiper-container ref="containerRef">
         <swiper-slide v-for="(slide, idx) in slides" :key="idx">
-          <img :src="slide" alt="">
+          <img :src="`/${slide}`" alt="">
         </swiper-slide>
       </swiper-container>
     </ClientOnly>

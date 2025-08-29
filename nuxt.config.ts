@@ -26,6 +26,7 @@ export default defineNuxtConfig({
     },
   },
   modules: [
+    '@pinia/nuxt',
     '@nuxt/image',
     'nuxt-swiper',
     'nuxt-nodemailer'

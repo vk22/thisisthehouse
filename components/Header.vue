@@ -63,7 +63,8 @@
 import { NuxtLink } from "#components";
 import { onMounted, ref, watch } from "vue";
   const props = defineProps({
-    dataReady: { type: Boolean, required: true }
+    dataReady: { type: Boolean, required: true },
+    isScrolled: { type: Boolean }
   })
   const isScrolled = ref(null);
   const mobileNavIsOpened = ref(false)
@@ -98,7 +99,12 @@ import { onMounted, ref, watch } from "vue";
   }
 
   onMounted(() => {
-    document.addEventListener("scroll", headerHandler);
+    if (!props.isScrolled) {
+        document.addEventListener("scroll", headerHandler);
+    } else {
+      isScrolled.value = props.isScrolled
+    }
+    
   });
 </script>
   
