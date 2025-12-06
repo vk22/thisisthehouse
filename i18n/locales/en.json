@@ -1,0 +1,72 @@
+{
+  "menu": [
+    {
+      "text": "About Us"
+    },
+    {
+      "text": "Our project"
+    }
+  ],
+  "form": {
+    "title": "Get In Touch",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+    "submit": "Submit"
+  },
+  "hero": {
+    "title": "Homes Designed\nto Be Lived In",
+    "subtitle": "Not just built — crafted to inspire"
+  },
+  "about": {
+    "title": "The House Project",
+    "text": [
+      "We are a private collective of investors and design visionaries creating one-of-a-kind homes in exceptional locations — from the coastlines of Spain and Montenegro to the tropics of Thailand and the hills of California.",
+      "Each residence blends soulful modern architecture with natural light, sculptural lines, and timeless materials — built for beauty, efficiency, and lasting value.",
+      "We build on elevated sites with breathtaking views of the sea and mountains, designing every home with the same care as if it were our own.",
+      "These aren’t just properties.\nThey’re places you’ll want to call home."
+    ]
+  },
+  "projects": {
+    "title": "Our Projects",
+    "spain": {
+      "title": "Villa Thalassa",
+      "place": "Spain, Marbella",
+      "text": [
+        "Perched atop a hill within the protected Reserva del Al Cuz Cuz nature reserve, Villa Thalassa commands uninterrupted, south-facing views of the Mediterranean Sea.",
+        "Set on a 3,000 m² estate, this extraordinary residence offers 12 bedrooms and a wealth of high-end amenities, including a fully equipped gym, sauna, private cinema, spa zone, dance floor with DJ bar, cigar lounge, and a four-car garage.",
+        "Outside, expansive terraces and landscaped gardens surround the property, which is powered by a self-sustaining 50kW solar energy station."
+      ],
+      "link": "Visit project website"
+    },
+    "kotor": {
+      "title": "The House",
+      "place": "Montenegro, Kotor",
+      "text": [
+        "Set on a hillside above the Bay of Kotor — Europe’s southernmost fjord — The House is a residential compound of five architecturally distinct buildings.",
+        "Designed with seismic resilience in mind, the structures feature monolithic frames and brick infill. The 300 mm travertine-clad exterior walls are built over a four-layer “warm ceramics” system that ensures top-tier thermal insulation, waterproofing, and acoustic performance."
+      ],
+      "link": "Visit project website"
+    },
+    "thailand": {
+      "title": "Villa Shanti",
+      "place": "Thailand, Koh Samui",
+      "text": [
+        "A luxury private 1,000 m² villa set in Koh Samui’s most exclusive development.",
+        "This cliffside retreat offers complete privacy, sleek contemporary architecture, and an awe-inspiring 180° panoramic sea view — a unique escape where modern living meets natural beauty."
+      ],
+      "link": "Crafted for 2027. Full reveal coming soon."
+    },
+    "usa": {
+      "title": "Villa Om",
+      "place": "Usa, California, Malibu",
+      "text": [
+        "Refined coastal luxury. An icon of California living.",
+        "Tucked between dramatic cliffs and secluded beaches, this private 1,200 m² villa offers rare scale, bold architecture, and cinematic views — in one of the most exclusive enclaves on the West Coast."
+      ],
+      "link": "Details coming soon."
+    }
+  }
+}

@@ -11,8 +11,8 @@
           <img src="/img/logo.png" class="white" alt="" />
         </div>
         <ul>
-          <li><span class="link" @click="smoothScrollTo('about')">About Us</span></li>
-          <li><span class="link" @click="smoothScrollTo('projects')">Our projects</span></li>
+          <li><span class="link" @click="smoothScrollTo('about')">{{ $t('menu[0].text') }}</span></li>
+          <li><span class="link" @click="smoothScrollTo('projects')">{{ $t('menu[1].text') }}</span></li>
         </ul>
       </div>
       <hr />
@@ -22,6 +22,7 @@
           <span class="whatsapp-text">whatsapp</span>
         </a>
         <button class="btn" @click="smoothScrollTo('forma')">Get In Touch</button>
+        <Langs></Langs>
       </div>
     </div>
     <div class="main-menu-mobile__background" @click="toggleMenu()"></div>
@@ -31,12 +32,14 @@
   :class="[{ small: isScrolled }, { 'show': dataReady }]"
  >
   <div class="header-l">
+    <Langs></Langs>
     <div class="main-menu">
       <ul>
-        <li><span class="link" @click="smoothScrollTo('about')">About Us</span></li>
-        <li><span class="link" @click="smoothScrollTo('projects')">Our projects</span></li>
+        <li><span class="link" @click="smoothScrollTo('about')">{{ $t('menu[0].text') }}</span></li>
+        <li><span class="link" @click="smoothScrollTo('projects')">{{ $t('menu[1].text') }}</span></li>
       </ul>
     </div>
+    
     <div class="icon-nav" @click="toggleMenu()">
         <div class="line"></div>
         <div class="line"></div>
@@ -54,7 +57,7 @@
       <span class="whatsapp-ic"></span>
       <span class="whatsapp-text">whatsapp</span>
     </a>
-    <button class="btn" @click="smoothScrollTo('forma')">Get In Touch</button>
+    <button class="btn" @click="smoothScrollTo('forma')">{{ $t('form.title') }}</button>
   </div>
  </header>
 </template>

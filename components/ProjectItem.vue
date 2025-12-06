@@ -11,16 +11,19 @@
           <slot name="title"></slot>
         </h2>
         <div class="text">
-          <slot name="text"></slot>
+          <!-- <slot name="text"></slot> -->
+           <div v-for="(item, index) in text" :key="index">
+               <p>{{ item.loc.source }}</p>
+           </div>
         </div>
         <div class="link" v-if="link">
           <a :href="link" target="_blank">
-            <span>Visit project website</span><span class="link-arrow"></span>
+            <span>{{ $t('projects.spain.link') }}</span><span class="link-arrow"></span>
           </a>
         </div>
         <div class="coming-soon" v-else>
-          <p v-if="title === 'Villa Shanti'">Crafted for 2027. Full reveal coming soon.</p>
-          <p v-if="title === 'Villa OM'">Details coming soon.</p>
+          <p v-if="title === 'projects.thailand.title'">{{ $t('projects.thailand.link') }}</p>
+          <p v-if="title === 'projects.usa.title'"> {{ $t('projects.usa.link') }}</p>
         </div>
       </div>
     </div>
@@ -31,6 +34,7 @@
   const props = defineProps({
     title: String,
     link: String,
+    text: Array,
     slides: Array
   })
   </script>

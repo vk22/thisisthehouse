@@ -29,7 +29,8 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxt/image',
     'nuxt-swiper',
-    'nuxt-nodemailer'
+    'nuxt-nodemailer',
+    '@nuxtjs/i18n'
   ],
   nodemailer: {
     from: '"Site Form" <info@thisisthehouse.com>',
@@ -41,6 +42,31 @@ export default defineNuxtConfig({
       user: 'info@thisisthehouse.com',
       pass: '9Fvi41TQJK7t',
     },
+  },
+  i18n: {
+    // 🌍 Языки
+    locales: [
+      { code: 'en', iso: 'en-US', name: 'English', file: 'en.json' },
+      { code: 'zh', iso: 'zh-Zh', name: 'Chinese', file: 'zh.json' }
+    ],
+    pages: {
+      admin: false
+    },
+    defaultLocale: 'en',
+
+    // 📁 Папка с переводами
+    langDir: 'locales/',
+
+    strategy: 'prefix_except_default',
+
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'lang',
+      redirectOn: 'root', // перенаправление только с /
+    },
+    experimental: {
+      functionInjection: false
+    }
   },
   nitro: {
     plugins: ["~/server/plugins/mongodb.ts"],

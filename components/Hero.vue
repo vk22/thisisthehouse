@@ -1,11 +1,11 @@
 <template>
     <section class="hero">
         <div class="hero__content fadeUpBlock" :class="{'show': dataReady}">
-            <div class="hero-title">
-                Homes Designed<br>to Be Lived In
+            <div class="hero-title" style="white-space: pre-line;">
+                {{ $t('hero.title') }}
             </div>
             <div class="hero-subtitle">
-                Not just built — crafted to inspire
+               {{ $t('hero.subtitle') }}
             </div>
         </div>    
         <div class="hero__bg fadeUpBlock" :class="{'show': dataReady}">

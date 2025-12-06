@@ -2,7 +2,7 @@
 <template>
   <section class="feedback-form" id="forma">
     <div class="feedback-form__heading">
-      <h2>Get In Touch</h2>
+      <h2>{{ $t('form.title') }}</h2>
     </div>
     <Form
       ref="form"
@@ -16,8 +16,8 @@
           <TextInput
             name="name1"
             type="text"
-            label="First Name"
-            placeholder="First Name"
+            :label="$t('form.firstName')"
+            :placeholder="$t('form.firstName')"
             success-message="Nice to meet you!"
           />
         </div>
@@ -25,8 +25,8 @@
           <TextInput
             name="name2"
             type="text"
-            label="Last Name"
-            placeholder="Last Name"
+            :label="$t('form.lastName')"
+            :placeholder="$t('form.lastName')"
             success-message="Nice to meet you!"
           />
         </div>
@@ -37,8 +37,8 @@
           <TextInput
             name="email"
             type="email"
-            label="Email"
-            placeholder="Your email"
+            :label="$t('form.email')"
+            :placeholder="$t('form.email')"
             success-message="Got it!"
           />
         </div>
@@ -47,8 +47,8 @@
           <TextInput
             name="phone"
             type="tel"
-            label="Phone"
-            placeholder="Your phone number"
+            :label="$t('form.phone')"
+            :placeholder="$t('form.phone')"
             success-message="Got it!"
           />
         </div>
@@ -58,8 +58,8 @@
           <TextInput
             name="message"
             type="textarea"
-            label="Message"
-            placeholder="Your comment"
+            :label="$t('form.message')"
+            :placeholder="$t('form.message')"
             success-message="Thank you!"
           />
         </div>
@@ -67,7 +67,7 @@
       <div class="form-row">
         <div class="form-col-100">
           <button class="btn w-100 black submit-btn" type="submit">
-            Submit
+            {{ $t('form.submit') }}
           </button>
         </div>
       </div>

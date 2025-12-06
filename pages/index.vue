@@ -42,15 +42,14 @@ const closeModal = (data) => {
   <section id="projects">
     <AnimatedComponent :delay="250" :animation-type="'slideup'">
       <div class="section-title">
-        <h2>Our Projects</h2>
+        <h2>{{ $t('projects.title') }}</h2>
       </div>
     </AnimatedComponent>
     <AnimatedComponent :delay="250" :animation-type="'slideup'" v-for="(project, index) in projects" :key="index"
       :index="index">
-      <ProjectItem :link="project.link" :slides="project.images" :title="project.title">
-          <template #place>{{ project.place }}</template>
-          <template #title>{{ project.title }}</template>
-          <template #text><div v-html="project.text"></div></template>
+      <ProjectItem :link="project.link" :slides="project.images" :title="project.title" :text="$tm(project.text)">
+          <template #place>{{ $t(project.place) }}</template>
+          <template #title>{{ $t(project.title) }}</template>
       </ProjectItem>
     </AnimatedComponent>
   </section>
