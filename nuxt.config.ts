@@ -65,7 +65,8 @@ export default defineNuxtConfig({
       redirectOn: 'root', // перенаправление только с /
     },
     experimental: {
-      functionInjection: false
+      functionInjection: false,
+      disableVueI18nPlugins: true
     }
   },
   nitro: {
