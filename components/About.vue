@@ -1,16 +1,16 @@
 <template>
   <section class="about-text" id="about">
-    <h1>{{ $t('about.title') }}</h1>
+    <h1>{{ t('about.title') }}</h1>
     <!-- <p>We are a private collective of investors and design visionaries creating one-of-a-kind homes in exceptional locations — from the coastlines of Spain and Montenegro to the tropics of Thailand and the hills of California.</p>
     <p>Each residence blends soulful modern architecture with natural light, sculptural lines, and timeless materials — built for beauty, efficiency, and lasting value.</p>
     <p>We build on elevated sites with breathtaking views of the sea and mountains, designing every home with the same care as if it were our own.</p>
     <p>These aren’t just properties.<br>
         They’re places you’ll want to call home.</p> -->
 
-        <p>{{ $t('about.text[0]') }}</p>
-        <p>{{ $t('about.text[1]') }}</p>
-        <p>{{ $t('about.text[2]') }}</p>
-        <p style="white-space: pre-line;">{{ $t('about.text[3]') }}</p>
+        <p>{{ t('about.text.0') }}</p>
+        <p>{{ t('about.text.1') }}</p>
+        <p>{{ t('about.text.2') }}</p>
+        <p style="white-space: pre-line;">{{ t('about.text.3') }}</p>
   </section>
 </template>
     

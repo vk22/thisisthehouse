@@ -39,7 +39,7 @@ export default defineNuxtConfig({
     '@nuxt/image',
     'nuxt-swiper',
     'nuxt-nodemailer',
-    '@nuxtjs/i18n'
+    // '@nuxtjs/i18n'
   ],
   nodemailer: {
     from: '"Site Form" <info@thisisthehouse.com>',
@@ -52,36 +52,36 @@ export default defineNuxtConfig({
       pass: '9Fvi41TQJK7t',
     },
   },
-  i18n: {
-    // 🌍 Языки
-    locales: [
-      { code: 'en', iso: 'en-US', name: 'English', file: 'en.json' },
-      { code: 'zh', iso: 'zh-Zh', name: 'Chinese', file: 'zh.json' }
-    ],
-    pages: {
-      admin: false
-    },
-    defaultLocale: 'en',
+  // i18n: {
+  //   // 🌍 Языки
+  //   locales: [
+  //     { code: 'en', iso: 'en-US', name: 'English', file: 'en.json' },
+  //     { code: 'zh', iso: 'zh-Zh', name: 'Chinese', file: 'zh.json' }
+  //   ],
+  //   pages: {
+  //     admin: false
+  //   },
+  //   defaultLocale: 'en',
 
-    // 📁 Папка с переводами
-    langDir: 'locales/',
+  //   // 📁 Папка с переводами
+  //   langDir: 'locales/',
 
-    strategy: 'prefix_except_default',
+  //   strategy: 'prefix_except_default',
 
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'lang',
-      redirectOn: 'root', // перенаправление только с /
-    },
-    experimental: {
-      disableVueI18nPlugins: true,
-      functionInjection: false
-    },
-    macros: false,
-    compilation: {
-      strictMessage: false
-    }
-  },
+  //   detectBrowserLanguage: {
+  //     useCookie: true,
+  //     cookieKey: 'lang',
+  //     redirectOn: 'root', // перенаправление только с /
+  //   },
+  //   experimental: {
+  //     disableVueI18nPlugins: true,
+  //     functionInjection: false
+  //   },
+  //   macros: false,
+  //   compilation: {
+  //     strictMessage: false
+  //   }
+  // },
   hooks: {
     'vite:extendConfig'(config, { isClient, isServer }) {
       if (!config.plugins) return

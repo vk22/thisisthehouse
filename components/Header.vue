@@ -13,12 +13,12 @@
         <ul>
           <li>
             <span class="link" @click="smoothScrollTo('about')">{{
-              $t("menu[0].text")
+              t("menu.0.text")
             }}</span>
           </li>
           <li>
             <span class="link" @click="smoothScrollTo('projects')">{{
-              $t("menu[1].text")
+              t("menu.1.text")
             }}</span>
           </li>
         </ul>
@@ -55,12 +55,12 @@
         <ul>
           <li>
             <span class="link" @click="smoothScrollTo('about')">{{
-              $t("menu[0].text")
+              t("menu.0.text")
             }}</span>
           </li>
           <li>
             <span class="link" @click="smoothScrollTo('projects')">{{
-              $t("menu[1].text")
+              t("menu.1.text")
             }}</span>
           </li>
         </ul>
@@ -92,7 +92,7 @@
         <!-- <span class="whatsapp-text">whatsapp</span> -->
       </a>
       <button class="btn" @click="smoothScrollTo('forma')">
-        {{ $t("form.title") }}
+        {{ t("form.title") }}
       </button>
     </div>
   </header>

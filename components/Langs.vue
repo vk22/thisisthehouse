@@ -1,6 +1,6 @@
 <script setup>
-const { locale, locales } = useI18n();
-const switchLocalePath = useSwitchLocalePath();
+// const { locale, locales } = useI18n();
+// const switchLocalePath = useSwitchLocalePath();
 
 const current = computed(() =>
   locales.value.find((l) => l.code === locale.value)
@@ -19,7 +19,7 @@ const others = computed(() =>
     </div> -->
 
     <div class="langs">
-      <NuxtLink
+      <!-- <NuxtLink
         v-for="l in locales"
         :key="l.code"
         :to="switchLocalePath(l.code)"
@@ -27,7 +27,9 @@ const others = computed(() =>
         :class="{ active: current.code === l.code }"
       >
         {{ l.code }}
-      </NuxtLink>
+      </NuxtLink> -->
+      <a class="lang" href="/">EN</a>
+      <a class="lang" href="/zh">中文</a>
     </div>
   </div>
 </template>
