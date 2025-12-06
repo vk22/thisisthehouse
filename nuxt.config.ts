@@ -24,6 +24,15 @@ export default defineNuxtConfig({
         },
       },
     },
+    plugins: [
+      {
+        name: 'disable-i18n-macros',
+        enforce: 'pre',
+        transform() {
+          return null
+        }
+      }
+    ]
   },
   modules: [
     '@pinia/nuxt',
@@ -65,10 +74,23 @@ export default defineNuxtConfig({
       redirectOn: 'root', // перенаправление только с /
     },
     experimental: {
-      functionInjection: false,
-      disableVueI18nPlugins: true
+      disableVueI18nPlugins: true,
+      functionInjection: false
     },
-    macros: false
+    macros: false,
+    compilation: {
+      strictMessage: false
+    }
+  },
+  hooks: {
+    'vite:extendConfig'(config, { isClient, isServer }) {
+      if (!config.plugins) return
+      config.plugins = config.plugins.filter(
+        (p) =>
+          !(p && p.name && p.name.includes('i18n')) &&
+          !(p && p.name && p.name.includes('vue-i18n'))
+      )
+    }
   },
   nitro: {
     plugins: ["~/server/plugins/mongodb.ts"],
