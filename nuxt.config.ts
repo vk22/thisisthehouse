@@ -67,7 +67,8 @@ export default defineNuxtConfig({
     experimental: {
       functionInjection: false,
       disableVueI18nPlugins: true
-    }
+    },
+    macros: false
   },
   nitro: {
     plugins: ["~/server/plugins/mongodb.ts"],
