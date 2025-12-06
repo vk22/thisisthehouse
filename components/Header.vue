@@ -11,115 +11,148 @@
           <img src="/img/logo.png" class="white" alt="" />
         </div>
         <ul>
-          <li><span class="link" @click="smoothScrollTo('about')">{{ $t('menu[0].text') }}</span></li>
-          <li><span class="link" @click="smoothScrollTo('projects')">{{ $t('menu[1].text') }}</span></li>
+          <li>
+            <span class="link" @click="smoothScrollTo('about')">{{
+              $t("menu[0].text")
+            }}</span>
+          </li>
+          <li>
+            <span class="link" @click="smoothScrollTo('projects')">{{
+              $t("menu[1].text")
+            }}</span>
+          </li>
         </ul>
       </div>
       <hr />
       <div class="m-bottom">
+        <a
+          href="wechat://addcontact/?username=thehouseproject"
+          target="_blank"
+          class="wechat"
+        >
+          <span class="wechat-ic"></span>
+          <!-- <span class="whatsapp-text">whatsapp</span> -->
+        </a>
         <a href="https://wa.me/34684355244" target="_blank" class="whatsapp">
           <span class="whatsapp-ic"></span>
-          <span class="whatsapp-text">whatsapp</span>
+          <!-- <span class="whatsapp-text">whatsapp</span> -->
         </a>
-        <button class="btn" @click="smoothScrollTo('forma')">Get In Touch</button>
+        <button class="btn" @click="smoothScrollTo('forma')">
+          Get In Touch
+        </button>
         <Langs></Langs>
       </div>
     </div>
     <div class="main-menu-mobile__background" @click="toggleMenu()"></div>
   </div>
-<header
-  class="main-header"
-  :class="[{ small: isScrolled }, { 'show': dataReady }]"
- >
-  <div class="header-l">
-    <Langs></Langs>
-    <div class="main-menu">
-      <ul>
-        <li><span class="link" @click="smoothScrollTo('about')">{{ $t('menu[0].text') }}</span></li>
-        <li><span class="link" @click="smoothScrollTo('projects')">{{ $t('menu[1].text') }}</span></li>
-      </ul>
-    </div>
-    
-    <div class="icon-nav" @click="toggleMenu()">
+  <header
+    class="main-header"
+    :class="[{ small: isScrolled }, { show: dataReady }]"
+  >
+    <div class="header-l">
+      <Langs></Langs>
+      <div class="main-menu">
+        <ul>
+          <li>
+            <span class="link" @click="smoothScrollTo('about')">{{
+              $t("menu[0].text")
+            }}</span>
+          </li>
+          <li>
+            <span class="link" @click="smoothScrollTo('projects')">{{
+              $t("menu[1].text")
+            }}</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="icon-nav" @click="toggleMenu()">
         <div class="line"></div>
         <div class="line"></div>
         <div class="line"></div>
       </div>
-  </div>
-  <div class="header-c">
-   <div class="logo">
-    <img src="/img/logo.png" class="white" alt="" />
-    <!-- <img src="/img/logo.png" class="black" alt="" /> -->
-   </div>
-  </div>
-  <div class="header-r">
-    <a href="https://wa.me/34684355244" target="_blank" class="whatsapp">
-      <span class="whatsapp-ic"></span>
-      <span class="whatsapp-text">whatsapp</span>
-    </a>
-    <button class="btn" @click="smoothScrollTo('forma')">{{ $t('form.title') }}</button>
-  </div>
- </header>
+    </div>
+    <div class="header-c">
+      <div class="logo">
+        <img src="/img/logo.png" class="white" alt="" />
+        <!-- <img src="/img/logo.png" class="black" alt="" /> -->
+      </div>
+    </div>
+    <div class="header-r">
+      <a
+        href="wechat://addcontact/?username=thehouseproject"
+        target="_blank"
+        class="wechat"
+      >
+        <span class="wechat-ic"></span>
+        <!-- <span class="whatsapp-text">whatsapp</span> -->
+      </a>
+      <a href="https://wa.me/34684355244" target="_blank" class="whatsapp">
+        <span class="whatsapp-ic"></span>
+        <!-- <span class="whatsapp-text">whatsapp</span> -->
+      </a>
+      <button class="btn" @click="smoothScrollTo('forma')">
+        {{ $t("form.title") }}
+      </button>
+    </div>
+  </header>
 </template>
     
 <script setup>
 import { NuxtLink } from "#components";
 import { onMounted, ref, watch } from "vue";
-  const props = defineProps({
-    dataReady: { type: Boolean, required: true },
-    isScrolled: { type: Boolean }
-  })
-  const isScrolled = ref(null);
-  const mobileNavIsOpened = ref(false)
+const props = defineProps({
+  dataReady: { type: Boolean, required: true },
+  isScrolled: { type: Boolean },
+});
+const isScrolled = ref(null);
+const mobileNavIsOpened = ref(false);
 
-  const headerHandler = () => {
-    if (window.scrollY > 50) {
-     isScrolled.value = true;
-    } else {
-     isScrolled.value = false;
-    }
-  };
-  const toggleMenu = () => {
-    mobileNavIsOpened.value = !mobileNavIsOpened.value;
+const headerHandler = () => {
+  if (window.scrollY > 50) {
+    isScrolled.value = true;
+  } else {
+    isScrolled.value = false;
   }
+};
+const toggleMenu = () => {
+  mobileNavIsOpened.value = !mobileNavIsOpened.value;
+};
 
-  const closeMenu = () => {
-    mobileNavIsOpened.value = false
+const closeMenu = () => {
+  mobileNavIsOpened.value = false;
+};
+
+const smoothScrollTo = (id) => {
+  console.log("smoothScrollTo ", id);
+  if (!id) return;
+  const target = document.getElementById(id);
+  if (!target) return;
+  const yOffset = -75;
+  const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+  console.log("y ", y);
+  window.scrollTo({ top: y, behavior: "smooth" });
+  setTimeout(() => {
+    closeMenu();
+  }, 500);
+};
+
+onMounted(() => {
+  if (!props.isScrolled) {
+    document.addEventListener("scroll", headerHandler);
+  } else {
+    isScrolled.value = props.isScrolled;
   }
-
-  const smoothScrollTo = (id) => {
-    console.log('smoothScrollTo ', id)
-    if (!id) return;
-    const target = document.getElementById(id);
-    if (!target) return;
-    const yOffset = -75;
-    const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
-    console.log('y ', y)
-    window.scrollTo({ top: y, behavior: "smooth" });
-    setTimeout(() => {
-      closeMenu();
-    }, 500);
-  }
-
-  onMounted(() => {
-    if (!props.isScrolled) {
-        document.addEventListener("scroll", headerHandler);
-    } else {
-      isScrolled.value = props.isScrolled
-    }
-    
-  });
+});
 </script>
   
 <style lang="scss" scoped>
-
-
 .main-header {
   position: fixed;
   top: 0;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; 
+  align-items: flex-start;
   z-index: 999;
   width: 100vw;
   padding: 1.5rem 2rem;
@@ -133,48 +166,47 @@ import { onMounted, ref, watch } from "vue";
   }
 
   @include for-phone-only {
-    align-items: center; 
+    align-items: center;
     height: 90px;
   }
 
   @include for-tablet-portrait-up {
-    align-items: flex-start; 
+    align-items: flex-start;
   }
 
- .header-l,
- .header-r {
-  color: #1c1c1c;
-  width: 40%;
-  display: flex;
-  align-items: flex-start;
- }
-
- .main-menu {
-
-  @include for-phone-only {
-    display: none;
-  }
-
-  @include for-tablet-portrait-up {
-    display: block;
-  }
-
-  ul {
+  .header-l,
+  .header-r {
+    color: #1c1c1c;
+    width: 40%;
     display: flex;
-    li {
-      padding: 1rem;
-      .link {
-        font-family: $font-sans;
-        text-transform: uppercase;
-        font-size: .9rem;
-        font-weight: 500;
-        cursor: pointer;
+    align-items: flex-start;
+  }
+
+  .main-menu {
+    @include for-phone-only {
+      display: none;
+    }
+
+    @include for-tablet-portrait-up {
+      display: block;
+    }
+
+    ul {
+      display: flex;
+      li {
+        padding: 1rem;
+        .link {
+          font-family: $font-sans;
+          text-transform: uppercase;
+          font-size: 0.9rem;
+          font-weight: 500;
+          cursor: pointer;
+        }
       }
     }
   }
-}
 
- .icon-nav {
+  .icon-nav {
     position: relative;
     width: 45px;
     height: 15px;
@@ -245,58 +277,79 @@ import { onMounted, ref, watch } from "vue";
     }
   }
 
- .header-r {
-  justify-content: flex-end;
-  align-items: center;
-  color: #fff;
+  .header-r {
+    justify-content: flex-end;
+    align-items: center;
+    color: #fff;
 
-  .whatsapp {
-    display: flex!important;
+    .wechat {
+      margin-right: 15px;
+      .wechat-ic {
+        display: block;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-image: url("/img/wechat.png");
+        margin: 5px;
 
-    .whatsapp-ic {
-      display: block;
-      background-size: 100%;
-      background-repeat: no-repeat;
-      background-image: url('/img/whatsapp.svg');
-      margin: 3px;
-
-      @include for-phone-only {
-          width: 26px;
-          height: 26px;
-      }
+        @include for-phone-only {
+          width: 28px;
+          height: 28px;
+        }
 
         @include for-tablet-portrait-up {
-          width: 20px;
-          height: 20px;
+          width: 26px;
+          height: 26px;
         }
+      }
     }
-    .whatsapp-text {
-      margin-left: 4px;
-      text-transform: uppercase;
-      font-size: .9rem;
-      font-weight: 500;
+
+    .whatsapp {
+      display: flex !important;
+
+      .whatsapp-ic {
+        display: block;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-image: url("/img/whatsapp.svg");
+        margin: 3px;
+
+        @include for-phone-only {
+          width: 28px;
+          height: 28px;
+        }
+
+        @include for-tablet-portrait-up {
+          width: 26px;
+          height: 26px;
+        }
+      }
+      .whatsapp-text {
+        margin-left: 4px;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        font-weight: 500;
+        @include for-phone-only {
+          display: none;
+        }
+
+        @include for-tablet-portrait-up {
+          display: block;
+        }
+      }
+    }
+
+    .btn {
+      margin-left: 2rem;
       @include for-phone-only {
         display: none;
       }
-
       @include for-tablet-portrait-up {
         display: block;
       }
     }
   }
 
-  .btn {
-    margin-left: 2rem;
-    @include for-phone-only {
-      display: none;
-    }
-    @include for-tablet-portrait-up {
-      display: block;
-    }
-  }
- }
-
- .logo {
+  .logo {
     position: relative;
 
     @include for-phone-only {
@@ -307,175 +360,171 @@ import { onMounted, ref, watch } from "vue";
     }
 
     img {
-    @include base-transition(all, .25s);
+      @include base-transition(all, 0.25s);
 
-    @include for-phone-only {
-      width: 225px;
-    }
-    @include for-tablet-portrait-up {
-      width: 225px;
-    }
-    @include for-desktop-up {
-      width: 225px;
-    }
-    @include for-700-height-only {
-      width: 225px;
-    }
-    }
-  // .black {
-  //  display: none;
-  // }
-  // .white {
-  //  display: block;
-  // }
- }
-
- .btn-quote {
-  background-color: #86775000;
-  border: 1px solid #ffffff86;
-  border-radius: 4px;
-  color: #fff;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  padding: 0.75rem 1.25rem;
-  text-align: center;
-  text-transform: uppercase;
-  transition-duration: 0.25s;
-  transition-property: all;
-  transition-timing-function: ease-out;
-  width: auto;
-  margin-left: 2rem;
-  @include for-phone-only {
-   display: none;
-  }
-  @include for-tablet-portrait-up {
-   display: flex;
-  }
-
-  @include for-desktop-up {
-   display: flex;
-  }
-
-  &:hover {
-   color: #fff;
-   background: #6c4d19;
-  }
- }
-
- .btn-quote-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #673ab7;
-  border-radius: 100px;
-  color: #fff;
-  cursor: pointer;
-  text-align: center;
-  text-transform: uppercase;
-  transition-duration: 0.25s;
-  transition-property: all;
-  transition-timing-function: ease-out;
-
-  @include for-phone-only {
-   width: 40px;
-   height: 40px;
-   margin-left: 0rem;
-  }
-  @include for-tablet-portrait-up {
-   width: 50px;
-   height: 50px;
-   margin-left: 2rem;
-  }
-
-  img {
-   width: 55%;
-  }
- }
-
- .phone {
-  @include for-phone-only {
-   display: none;
-  }
-  @include for-tablet-portrait-up {
-   display: flex;
-   span {
-    display: none;
-   }
-  }
-
-  @include for-desktop-up {
-   display: flex;
-   span {
-    display: block;
-   }
-  }
- }
-
- ///
- &.small {
-  background: #ffffff;
-  padding: 1rem 2rem;
-  @include base-transition(all);
-  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.15);
-  height: 90px;
-  align-items: center;
-
-  .icon-nav {
-   .line {
-    background: #000;
-   }
-  }
-
-
-  .logo {
-    position: relative;
-    top: 0px;
-    img {
       @include for-phone-only {
-      width: 115px;
+        width: 225px;
       }
       @include for-tablet-portrait-up {
-      width: 115px;
+        width: 225px;
       }
-
       @include for-desktop-up {
-      width: 115px;
+        width: 225px;
       }
       @include for-700-height-only {
-      width: 115px;
+        width: 225px;
       }
     }
-  //  .black {
-  //   display: block;
-  //  }
-  //  .white {
-  //   display: none;
-  //  }
+    // .black {
+    //  display: none;
+    // }
+    // .white {
+    //  display: block;
+    // }
   }
-  .btn-header-icon {
-   @include for-phone-only {
-    width: 40px;
-    height: 40px;
-    margin-left: 0rem;
-   }
-   @include for-tablet-portrait-up {
-    width: 40px;
-    height: 40px;
+
+  .btn-quote {
+    background-color: #86775000;
+    border: 1px solid #ffffff86;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 0.75rem 1.25rem;
+    text-align: center;
+    text-transform: uppercase;
+    transition-duration: 0.25s;
+    transition-property: all;
+    transition-timing-function: ease-out;
+    width: auto;
     margin-left: 2rem;
-   }
+    @include for-phone-only {
+      display: none;
+    }
+    @include for-tablet-portrait-up {
+      display: flex;
+    }
 
-   img {
-    width: 55%;
-   }
+    @include for-desktop-up {
+      display: flex;
+    }
+
+    &:hover {
+      color: #fff;
+      background: #6c4d19;
+    }
   }
- }
+
+  .btn-quote-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #673ab7;
+    border-radius: 100px;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    transition-duration: 0.25s;
+    transition-property: all;
+    transition-timing-function: ease-out;
+
+    @include for-phone-only {
+      width: 40px;
+      height: 40px;
+      margin-left: 0rem;
+    }
+    @include for-tablet-portrait-up {
+      width: 50px;
+      height: 50px;
+      margin-left: 2rem;
+    }
+
+    img {
+      width: 55%;
+    }
+  }
+
+  .phone {
+    @include for-phone-only {
+      display: none;
+    }
+    @include for-tablet-portrait-up {
+      display: flex;
+      span {
+        display: none;
+      }
+    }
+
+    @include for-desktop-up {
+      display: flex;
+      span {
+        display: block;
+      }
+    }
+  }
+
+  ///
+  &.small {
+    background: #ffffff;
+    padding: 1rem 2rem;
+    @include base-transition(all);
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.15);
+    height: 90px;
+    align-items: center;
+
+    .icon-nav {
+      .line {
+        background: #000;
+      }
+    }
+
+    .logo {
+      position: relative;
+      top: 0px;
+      img {
+        @include for-phone-only {
+          width: 115px;
+        }
+        @include for-tablet-portrait-up {
+          width: 115px;
+        }
+
+        @include for-desktop-up {
+          width: 115px;
+        }
+        @include for-700-height-only {
+          width: 115px;
+        }
+      }
+      //  .black {
+      //   display: block;
+      //  }
+      //  .white {
+      //   display: none;
+      //  }
+    }
+    .btn-header-icon {
+      @include for-phone-only {
+        width: 40px;
+        height: 40px;
+        margin-left: 0rem;
+      }
+      @include for-tablet-portrait-up {
+        width: 40px;
+        height: 40px;
+        margin-left: 2rem;
+      }
+
+      img {
+        width: 55%;
+      }
+    }
+  }
 }
-
-
-
 
 .main-menu-mobile {
   position: fixed;
@@ -492,13 +541,12 @@ import { onMounted, ref, watch } from "vue";
   opacity: 0;
   visibility: hidden;
 
-
   .logo {
-      @include base-transition(all);
-      opacity: 0;
-      transform: translateY(20px);
-      width: 160px;
-      margin-bottom: 3rem;
+    @include base-transition(all);
+    opacity: 0;
+    transform: translateY(20px);
+    width: 160px;
+    margin-bottom: 3rem;
   }
 
   ul {
@@ -506,7 +554,7 @@ import { onMounted, ref, watch } from "vue";
     padding: 0;
     margin: 0;
     text-align: center;
-    padding: .5rem 0;
+    padding: 0.5rem 0;
 
     li {
       @include base-transition(all);
@@ -515,13 +563,12 @@ import { onMounted, ref, watch } from "vue";
       text-align: center;
 
       @include for-phone-only {
-        padding: .5rem 0;
+        padding: 0.5rem 0;
       }
 
       @include for-tablet-portrait-up {
         padding: 1rem 0;
       }
-
 
       .link {
         font-family: $font-sans;
@@ -592,9 +639,7 @@ import { onMounted, ref, watch } from "vue";
     }
 
     .m-top {
-
     }
-
 
     hr {
       width: 30%;
@@ -615,23 +660,34 @@ import { onMounted, ref, watch } from "vue";
       transform: translateY(20px);
       @include base-transition(all);
 
-      .whatsapp {
-        display: flex!important;
-
-        .whatsapp-ic {
-          width: 20px;
-          height: 20px;
+      .wechat {
+        .wechat-ic {
+          width: 24px;
+          height: 24px;
           display: block;
           background-size: 100%;
           background-repeat: no-repeat;
-          background-image: url('/img/whatsapp.svg');
+          background-image: url("/img/wechat.png");
+          margin: 3px;
+        }
+      }
+
+      .whatsapp {
+        display: flex !important;
+
+        .whatsapp-ic {
+          width: 24px;
+          height: 24px;
+          display: block;
+          background-size: 100%;
+          background-repeat: no-repeat;
+          background-image: url("/img/whatsapp.svg");
           margin: 3px;
         }
         .whatsapp-text {
           font-size: 1rem;
           margin-left: 4px;
           text-transform: uppercase;
-          
         }
       }
     }
@@ -647,7 +703,7 @@ import { onMounted, ref, watch } from "vue";
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, .45);
+    background: rgba(0, 0, 0, 0.45);
     z-index: 99;
   }
 
@@ -724,7 +780,6 @@ import { onMounted, ref, watch } from "vue";
         transition-delay: 0.5s;
       }
 
-
       li {
         opacity: 1;
         transform: translateY(0px);
@@ -736,7 +791,7 @@ import { onMounted, ref, watch } from "vue";
       li:nth-child(2) {
         transition-delay: 0.7s;
       }
-     
+
       hr {
         opacity: 1;
         transform: translateY(0px);
@@ -751,5 +806,4 @@ import { onMounted, ref, watch } from "vue";
     }
   }
 }
-
 </style>

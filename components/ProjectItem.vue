@@ -13,7 +13,7 @@
         <div class="text">
           <!-- <slot name="text"></slot> -->
            <div v-for="(item, index) in text" :key="index">
-               <p>{{ item.loc.source }}</p>
+               <p v-if="item">{{ item}}</p>
            </div>
         </div>
         <div class="link" v-if="link">
