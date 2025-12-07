@@ -16,7 +16,7 @@ export const useStore = defineStore('projects', {
                     'img/thalassa-7.jpg'
                 ],
                 thumbnail: 'img/thalassa-thumb.jpg',
-                title: 'projects.spain.place',
+                title: 'projects.spain.title',
                 //text: "<p>Perched atop a hill within the protected Reserva del Al Cuz Cuz nature reserve, Villa Thalassa commands uninterrupted, south-facing views of the Mediterranean Sea.</p><p>Set on a 3,000 m² estate, this extraordinary residence offers 12 bedrooms and a wealth of high-end amenities, including a fully equipped gym, sauna, private cinema, spa zone, dance floor with DJ bar, cigar lounge, and a four-car garage.</p><p>Outside, expansive terraces and landscaped gardens surround the property, which is powered by a self-sustaining 50kW solar energy station.</p>",
                 text: "projects.spain.text",
                 description: "Perched atop a hill within the protected Reserva del Al Cuz Cuz nature reserve, Villa Thalassa commands uninterrupted, south-facing views of the Mediterranean Sea.",
